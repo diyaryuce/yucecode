@@ -1,7 +1,16 @@
 import { MailPlusIcon, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
+import { translations } from "../translations";
 
-export default function Navbar() {
+type Language = "no" | "en";
+
+type Trans = {
+  t: typeof translations.no;
+  language: Language;
+  toggleLanguage: () => void;
+};
+
+export default function Navbar({ t, language, toggleLanguage }: Trans) {
   const [atTop, setAtTop] = useState(true);
 
   useEffect(() => {
@@ -33,6 +42,18 @@ export default function Navbar() {
             bg-transparent
           "
         >
+          <button
+            onClick={toggleLanguage}
+            className="
+            flex h-8 lg:h-10 lg:min-w-10 
+            items-center justify-center px-2.5 rounded-lg cursor-pointer text-xs lg:text-sm font-semibold 
+            transition duration-300
+            border border-[#403f3e] bg-[#202020] hover:text-[#E8BD70] tracking-wide
+            "
+          >
+            {language === "no" ? "EN" : "NO"}
+          </button>
+
           <nav
             className={`
               font-outfit
@@ -45,8 +66,8 @@ export default function Navbar() {
 
               ${
                 atTop
-                  ? "bg-transparent border-transparent mx-3 sm:mx-5"
-                  : "bg-[#151515]/80 backdrop-blur-lg border rounded-xl border-white/10 mx-2.75 sm:mx-4.75"
+                  ? "bg-transparent border-transparent ml-2 mr-3 lg:ml-4 lg:mr-5"
+                  : "bg-[#151515]/80 backdrop-blur-lg border rounded-xl border-white/10 ml-1.75 mr-2.75 lg:ml-3.75 lg:mr-4.75"
               }
             `}
           >
@@ -67,7 +88,7 @@ export default function Navbar() {
                 hover:text-[#E8BD70]
               "
             >
-              Home
+              {t.nav.home}
             </a>
 
             <a
@@ -87,7 +108,7 @@ export default function Navbar() {
                 hover:text-[#E8BD70]
               "
             >
-              Services
+              {t.nav.service}
             </a>
 
             <a
@@ -107,7 +128,7 @@ export default function Navbar() {
                 hover:text-[#E8BD70]
               "
             >
-              About
+              {t.nav.about}
             </a>
 
             <button
@@ -122,7 +143,7 @@ export default function Navbar() {
                 hover:text-[#E8BD70]
               "
             >
-              Contact
+              {t.nav.contact}
             </button>
           </nav>
 
@@ -199,6 +220,7 @@ function EmailButton() {
               absolute left-2.5 top-1/2
               -translate-y-1/2
               group-hover:text-[#E8BD70]
+              transition duration-300
             "
           />
 

@@ -1,6 +1,11 @@
 import { MailIcon, Phone } from "lucide-react";
+import { translations } from "../translations";
 
-export default function Footer() {
+type Trans = {
+  t: typeof translations.no;
+};
+
+export default function Footer({ t }: Trans) {
   return (
     <>
       <section
@@ -9,7 +14,7 @@ export default function Footer() {
           flex flex-col
           items-center
           justify-center
-          gap-10
+          gap-6
           min-h-[10rem]
           px-5 py-8
           font-outfit
@@ -23,7 +28,7 @@ export default function Footer() {
       >
         <div
           className="
-              absolute inset-0
+              absolute inset-0 z-0
               bg-[radial-gradient(ellipse_at_top,rgba(29,30,30,1),transparent_50%)]
             "
         />
@@ -31,7 +36,7 @@ export default function Footer() {
         <div
           className="
           flex flex-col
-          gap-5
+          gap-5 z-20
           justify-center
           items-center
           text-center
@@ -39,15 +44,13 @@ export default function Footer() {
         >
           <img src="/img/anadolu_gold.png" className="size-10 sm:size-12" />
 
-          <p className="text-xs sm:text-sm">
-            © 2026 yucecode.no. All rights reserved.
-          </p>
+          <p className="text-xs sm:text-sm">{t.footer.rights}</p>
         </div>
 
         <div
           className="
           flex flex-col
-          gap-3
+          gap-3 z-20
           items-center
           lg:items-start
         "
@@ -76,7 +79,7 @@ export default function Footer() {
             <Phone size={21} className="shrink-0 text-[#b2b2a8]" />
 
             <span className="text-sm sm:text-base text-[#b2b2a8]">
-              +47 69 69 69 69
+              +47 <span className="ml-4">-----</span>
             </span>
           </div>
 

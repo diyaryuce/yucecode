@@ -6,8 +6,13 @@ import {
   GraduationCap,
   ChartNoAxesColumnIncreasing,
 } from "lucide-react";
+import { translations } from "../translations";
 
-export default function Mainsite() {
+type Trans = {
+  t: typeof translations.no;
+};
+
+export default function Mainsite({ t }: Trans) {
   return (
     <>
       <main className="relative flex flex-col justify-center overflow-hidden font-outfit">
@@ -20,19 +25,8 @@ export default function Mainsite() {
             px-5 sm:px-8 lg:px-10
           "
         >
-          <div
-            className="
-              absolute inset-0 z-10
-              bg-[radial-gradient(ellipse_at_right,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]
-            "
-          />
-
-          <div
-            className="
-              absolute inset-0 z-10
-              bg-[radial-gradient(ellipse_at_left,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]
-            "
-          />
+          <AnimationLight Dir="left" />
+          <AnimationLight Dir="right" />
 
           <Reveal>
             <div
@@ -42,7 +36,9 @@ export default function Mainsite() {
                 items-center justify-center
               "
             >
-              <h2 className="mb-2 text-lg sm:text-xl lg:text-2xl">Hi, im</h2>
+              <h2 className="mb-2 text-lg sm:text-xl lg:text-2xl">
+                {t.hero.intro}
+              </h2>
 
               <h1
                 className="
@@ -63,8 +59,7 @@ export default function Mainsite() {
                   font-semibold
                 "
               >
-                I develop modern digital experiences that combine clean design,
-                solid engineering, and intuitive user interaction.
+                {t.hero.desc}
               </p>
 
               <div
@@ -95,7 +90,7 @@ export default function Mainsite() {
                       text-[#151515]
                     "
                   >
-                    Let's connect
+                    {t.hero.connect}
                   </span>
 
                   <ArrowRightIcon
@@ -110,7 +105,7 @@ export default function Mainsite() {
 
                 <a
                   href="#about"
-                  className="group flex items-center gap-3"
+                  className="group flex items-center gap-3 justify-center"
                   onClick={(e) => {
                     e.preventDefault();
 
@@ -128,7 +123,7 @@ export default function Mainsite() {
                       group-hover:text-[#E8BD70]
                     "
                   >
-                    More about me
+                    {t.hero.moreAbout}
                   </span>
 
                   <ArrowRightIcon
@@ -162,7 +157,7 @@ export default function Mainsite() {
         >
           <Reveal>
             <h1 className="gold-gradient mb-10 text-sm lg:text-lg tracking-[0.2em]">
-              SERVICES
+              {t.services.title}
             </h1>
 
             <div
@@ -178,7 +173,9 @@ export default function Mainsite() {
                   mt-8 lg:mt-0
                 "
               >
-                <h1 className="text-3xl font-bold sm:text-4xl">Frontend</h1>
+                <h1 className="text-3xl font-bold sm:text-4xl">
+                  {t.services.frontendTitle}
+                </h1>
 
                 <p
                   className="
@@ -188,16 +185,11 @@ export default function Mainsite() {
                     text-[#9f9fa8]
                   "
                 >
-                  Frontend is the eye-candy of every digital product, where the
-                  layer that captures attention and shapes the user's first
-                  impression. I develop modern, responsive, and high-performing
-                  interfaces that combine clean design with seamless usability.
-                  The goal is simple: create experiences that look impressive,
-                  feel intuitive, and leave a lasting impact.
+                  {t.services.frontendText}
                 </p>
 
                 <h2 className="mt-10 text-xl font-bold sm:text-2xl lg:mt-12">
-                  Tech that power my work
+                  {t.services.tech}
                 </h2>
 
                 <div className="mt-4 flex max-w-3xl flex-wrap gap-3">
@@ -244,7 +236,7 @@ export default function Mainsite() {
             >
               <div className="min-w-0">
                 <h1 className="text-3xl font-bold sm:text-4xl">
-                  Backend + Database
+                  {t.services.backendTitle}
                 </h1>
 
                 <p
@@ -255,17 +247,11 @@ export default function Mainsite() {
                     text-[#9f9fa8]
                   "
                 >
-                  Backend is the foundation that powers a digital product behind
-                  the scenes. I build reliable server-side systems and database
-                  solutions that handle data, business logic, authentication,
-                  and application functionality efficiently. My focus is on
-                  creating secure, scalable, and maintainable architectures that
-                  keep applications running smoothly and provide a solid
-                  foundation for the user experience.
+                  {t.services.backendText}
                 </p>
 
                 <h2 className="mt-10 text-xl font-bold sm:text-2xl lg:mt-12">
-                  Tech that power my work
+                  {t.services.tech}
                 </h2>
 
                 <div className="mt-4 flex max-w-2xl flex-wrap gap-3">
@@ -303,7 +289,7 @@ export default function Mainsite() {
         >
           <Reveal>
             <h1 className="gold-gradient mb-10 text-sm lg:text-lg tracking-[0.2em]">
-              ABOUT ME
+              {t.aboutMe.about}
             </h1>
 
             <div
@@ -316,7 +302,7 @@ export default function Mainsite() {
               "
             >
               <div className="mt-0 w-full lg:mt-20">
-                <h1 className="mb-5 text-3xl">Who am i?</h1>
+                <h1 className="mb-5 text-3xl">{t.aboutMe.who}</h1>
 
                 <p
                   className="
@@ -325,13 +311,7 @@ export default function Mainsite() {
                     text-[#9f9fa8]
                   "
                 >
-                  I started coding because I was curious about how the websites
-                  and applications I used every day were actually built. At
-                  first, it was mostly experimentation, changing small things,
-                  breaking them, fixing them, and slowly understanding how
-                  everything connected. That curiosity grew into a real interest
-                  in software development, especially the process of turning an
-                  idea into something people can actually use.
+                  {t.aboutMe.para1}
                 </p>
 
                 <br />
@@ -343,15 +323,7 @@ export default function Mainsite() {
                     text-[#9f9fa8]
                   "
                 >
-                  As I learned more, I became interested in both the visual and
-                  technical sides of development. I enjoyed frontend because it
-                  let me combine design with code, but I also wanted to
-                  understand what was happening behind the interface, which
-                  pushed me toward backend development, databases, and data
-                  engineering. Since then, I've focused on becoming a
-                  well-rounded developer who can understand the full picture and
-                  build applications that are clean, reliable, and thoughtfully
-                  designed.
+                  {t.aboutMe.para2}
                 </p>
 
                 <ul
@@ -368,10 +340,10 @@ export default function Mainsite() {
 
                     <div>
                       <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
-                        BASED IN
+                        {t.aboutMe.based}
                       </h2>
 
-                      <li>Trondheim, Norway</li>
+                      <li>{t.aboutMe.loc}</li>
                     </div>
                   </div>
 
@@ -380,11 +352,12 @@ export default function Mainsite() {
 
                     <div>
                       <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
-                        FOCUS
+                        {t.aboutMe.focus}
                       </h2>
 
-                      <li>Full-stack development</li>
-                      <li>Data engineering</li>
+                      {t.aboutMe.focusList.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
                     </div>
                   </div>
 
@@ -393,10 +366,12 @@ export default function Mainsite() {
 
                     <div>
                       <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
-                        CURRENTLY
+                        {t.aboutMe.currently}
                       </h2>
 
-                      <li>Studying Data Engineering</li>
+                      {t.aboutMe.currentlyList.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
                     </div>
                   </div>
 
@@ -405,12 +380,12 @@ export default function Mainsite() {
 
                     <div>
                       <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
-                        INTEREST
+                        {t.aboutMe.interest}
                       </h2>
 
-                      <li>Data and coding</li>
-                      <li>Gym and weightlifting</li>
-                      <li>Football and other sports</li>
+                      {t.aboutMe.interestList.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
                     </div>
                   </div>
                 </ul>
@@ -435,7 +410,7 @@ export default function Mainsite() {
                       text-[#151515]
                     "
                   >
-                    Get in touch
+                    {t.aboutMe.touch}
                   </span>
 
                   <ArrowRightIcon
@@ -529,6 +504,48 @@ function Reveal({ children }: { children: React.ReactNode }) {
     >
       {children}
     </div>
+  );
+}
+
+type Dire = {
+  Dir: "left" | "right";
+};
+
+function AnimationLight({ Dir }: Dire) {
+  const [lightActive, setLightActive] = useState(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLightActive(true);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  const position = Dir === "left" ? "left-[-15%]" : "right-[-15%]";
+
+  const gradient =
+    Dir === "left"
+      ? "bg-[radial-gradient(ellipse_at_left,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]"
+      : "bg-[radial-gradient(ellipse_at_right,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]";
+
+  const hiddenPosition = Dir === "left" ? "-translate-x-32" : "translate-x-32";
+
+  return (
+    <div
+      className={`
+        pointer-events-none absolute
+        ${position} top-1/2 h-200 lg:h-400 w-160 lg:w-325
+        -translate-y-1/2 ${gradient}
+        transition-all duration-1000 ease-out
+
+        ${
+          lightActive
+            ? "translate-x-0 opacity-100"
+            : `${hiddenPosition} opacity-0`
+        }
+      `}
+    />
   );
 }
 

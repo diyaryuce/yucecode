@@ -1,6 +1,11 @@
 import { ArrowRightIcon, X } from "lucide-react";
+import { translations } from "../translations";
 
-export default function ContactDialog() {
+type Trans = {
+  t: typeof translations.no;
+};
+
+export default function ContactDialog({ t }: Trans) {
   return (
     <dialog
       id="contact-dialog"
@@ -10,11 +15,10 @@ export default function ContactDialog() {
     "
     >
       <div className="flex flex-col items-start">
-        <h1 className="text-4xl gold-gradient font-bold">Get in touch</h1>
-        <p className="mt-2 text-base max-w-2xl">
-          Do you have a project in mind? Get in touch, and we'll find the
-          solution together.
-        </p>
+        <h1 className="text-4xl gold-gradient font-bold">
+          {t.contactDialog.title}
+        </h1>
+        <p className="mt-2 text-base max-w-2xl">{t.contactDialog.desc}</p>
 
         <button
           command="close"
@@ -33,17 +37,17 @@ export default function ContactDialog() {
           className="flex flex-col gap-4 mt-4 w-full"
         >
           <div className="flex flex-col gap-1">
-            <span className="">Your name</span>
+            <span className="">{t.contactDialog.name}</span>
             <input
               type="text"
               name="name"
-              placeholder="Your name"
+              placeholder={t.contactDialog.name}
               className="rounded-lg border border-[#404040] p-3"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <span className="">Your E-mail</span>
+            <span className="">{t.contactDialog.email}</span>
             <input
               type="email"
               name="email"
@@ -53,10 +57,10 @@ export default function ContactDialog() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <span>Message</span>
+            <span>{t.contactDialog.message}</span>
             <textarea
               name="message"
-              placeholder="Write your message..."
+              placeholder={t.contactDialog.write}
               className="rounded-lg border border-[#404040] p-3"
             />
           </div>
@@ -74,7 +78,7 @@ export default function ContactDialog() {
                 text-[#151515] text-xl mr-auto font-semibold max-w-2xl
               "
               >
-                Submit
+                {t.contactDialog.submit}
               </span>
 
               <ArrowRightIcon
@@ -95,7 +99,7 @@ export default function ContactDialog() {
                 group-hover:text-[#E8BD70] text-[#b2b2a8]
               "
               >
-                Cancel
+                {t.contactDialog.cancel}
               </span>
             </button>
           </div>
