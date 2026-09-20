@@ -33,20 +33,6 @@ export default function Navbar() {
             bg-transparent
           "
         >
-          <a
-            href="#hero"
-            className="shrink-0"
-            onClick={(e) => {
-              e.preventDefault();
-
-              document.getElementById("hero")?.scrollIntoView({
-                behavior: "smooth",
-              });
-            }}
-          >
-            <img src="/img/anadolu_gold.png" className="size-7 lg:size-12" />
-          </a>
-
           <nav
             className={`
               font-outfit

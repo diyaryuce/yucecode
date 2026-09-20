@@ -23,14 +23,14 @@ export default function Mainsite() {
           <div
             className="
               absolute inset-0 z-10
-              bg-[linear-gradient(to_right,#151515_0%,#151515_12%,rgba(21,21,21,0.85)_25%,rgba(21,21,21,0.35)_38%,transparent_70%)]
+              bg-[radial-gradient(ellipse_at_right,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]
             "
           />
 
           <div
             className="
               absolute inset-0 z-10
-              bg-[radial-gradient(ellipse_at_top,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]
+              bg-[radial-gradient(ellipse_at_left,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]
             "
           />
 
@@ -451,6 +451,13 @@ export default function Mainsite() {
             </div>
           </Reveal>
         </section>
+
+        <div
+          className="
+              absolute inset-0 z-10
+              bg-[radial-gradient(ellipse_110%_45%_at_50%_110%,rgba(29,30,30,1),transparent_40%)]
+            "
+        />
       </main>
     </>
   );

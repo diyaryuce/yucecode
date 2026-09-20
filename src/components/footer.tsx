@@ -12,9 +12,8 @@ export default function Footer() {
           gap-10
           min-h-[10rem]
           px-5 py-8
-          bg-[#1d1e1e]
           font-outfit
-
+          relative
           sm:px-8
 
           lg:flex-row
@@ -22,6 +21,13 @@ export default function Footer() {
           lg:px-20
         "
       >
+        <div
+          className="
+              absolute inset-0
+              bg-[radial-gradient(ellipse_at_top,rgba(29,30,30,1),transparent_50%)]
+            "
+        />
+
         <div
           className="
           flex flex-col
