@@ -46,14 +46,13 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
             onClick={toggleLanguage}
             className="
             flex h-9.5 lg:h-11 w-11 lg:w-13 px-3 sm:px-3 py-2 group
+            hover:scale-[1.05] transition duration-200
             items-center justify-center rounded-xl cursor-pointer text-xs lg:text-base font-semibold 
             border border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg tracking-wide
             
             "
           >
-            <span className="group-hover:scale-[1.05] group-hover:-translate-y-0.5 transition duration-200">
-              {language === "no" ? "EN" : "NO"}
-            </span>
+            <span>{language === "en" ? "NO" : "EN"}</span>
           </button>
 
           <nav

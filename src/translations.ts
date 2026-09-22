@@ -42,8 +42,7 @@ export const translations = {
       interestList: [
         "Data and coding",
         "Gym and weightlifting",
-        "Gaming",
-        "Football, basketball etc.",
+        "Gaming, Football, basketball etc.",
       ],
       touch: "Get in touch",
     },
@@ -107,8 +106,7 @@ export const translations = {
       interestList: [
         "Data og koding",
         "Trening og styrketrening",
-        "Gaming",
-        "Fotball, basketball osv.",
+        "Gaming, Fotball, basketball osv.",
       ],
       touch: "Ta kontakt",
     },

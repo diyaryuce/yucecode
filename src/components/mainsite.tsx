@@ -9,13 +9,16 @@ import {
 import { translations } from "../translations";
 
 type Trans = {
-  t: typeof translations.no;
+  t: typeof translations.en;
 };
 
 export default function Mainsite({ t }: Trans) {
   return (
     <>
-      <main className="relative flex flex-col justify-center overflow-hidden font-outfit">
+      <main className="relative flex flex-col overflow-hidden font-outfit">
+        <AnimationLight Dir="left" />
+        <AnimationLight Dir="right" />
+
         <section
           id="hero"
           className="
@@ -25,9 +28,6 @@ export default function Mainsite({ t }: Trans) {
             px-5 sm:px-8 lg:px-10
           "
         >
-          <AnimationLight Dir="left" />
-          <AnimationLight Dir="right" />
-
           <Reveal>
             <div
               className="
@@ -75,11 +75,11 @@ export default function Mainsite({ t }: Trans) {
                   command="show-modal"
                   className="
                     group flex
-                    h-14 w-55
+                    px-6 h-14 w-55
                     cursor-pointer
                     items-center justify-center
                     gap-3 rounded-xl
-                    px-6
+                    hover:scale-[1.05] transition duration-200
                     bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)]
                   "
                 >
@@ -106,8 +106,9 @@ export default function Mainsite({ t }: Trans) {
                 <a
                   href="#about"
                   className="
-                    group flex items-center lg:gap-0 gap-5.75 justify-center border-1 lg:border-0
-                    mt-3 lg:mt-0 rounded-xl px-6 lg:px-0 h-14 lg:h-auto w-45 lg:w-auto
+                    group flex items-center lg:gap-0 gap-5.75 justify-center border-2
+                    mt-3 lg:mt-0 rounded-xl px-6 h-14 w-50 lg:w-45
+                    hover:scale-[1.05] transition duration-200
 
                     border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg
                   "
@@ -123,7 +124,6 @@ export default function Mainsite({ t }: Trans) {
                     className="
                       text-base lg:text-lg
                       transition duration-200
-                      group-hover:-translate-y-1
                       group-hover:scale-[1.01]
                       group-hover:text-[#E8BD70]
                     "
@@ -141,23 +141,13 @@ export default function Mainsite({ t }: Trans) {
               </div>
             </div>
           </Reveal>
-
-          <div
-            className="
-              absolute inset-0 z-10
-              bg-[radial-gradient(ellipse_110%_45%_at_50%_110%,rgba(29,30,30,1),transparent_70%)]
-            "
-          />
         </section>
 
         <section
           id="services"
           className="
-            relative flex min-h-screen
-            bg-[#1d1e1e]
-            px-5 py-10
-            sm:px-8
-            lg:px-20 lg:py-15
+            relative flex
+            px-5 py-10 sm:px-8 lg:px-20 lg:py-15 w-full
           "
         >
           <Reveal>
@@ -165,119 +155,118 @@ export default function Mainsite({ t }: Trans) {
               {t.services.title}
             </h1>
 
-            <div
-              className="
-                flex min-w-0
-                flex-col
-                lg:flex-row
-              "
-            >
-              <div
-                className="
-                  min-w-0
-                  mt-8 lg:mt-0
-                "
-              >
-                <h1 className="text-3xl font-bold sm:text-4xl">
-                  {t.services.frontendTitle}
+            <div className="flex items-center">
+              <div className="flex flex-col gap-4">
+                <h1 className="font-bold text-5xl">
+                  Building digital experiences end to end.
                 </h1>
-
-                <p
-                  className="
-                    mt-5
-                    text-base sm:text-lg lg:text-xl
-                    leading-relaxed
-                    text-[#9f9fa8]
-                  "
-                >
-                  {t.services.frontendText}
+                <p className="max-w-lg text-[#9f9fa7]">
+                  I develop modern, scalable and user-centered web applications,
+                  from intuitive frontends to robust backends and databases
                 </p>
-
-                <h2 className="mt-10 text-xl font-bold sm:text-2xl lg:mt-12">
-                  {t.services.tech}
-                </h2>
-
-                <div className="mt-4 flex max-w-3xl flex-wrap gap-3">
-                  <Tech image="/img/react.png" name="React" role="specialize" />
-
-                  <Tech
-                    image="/img/javascript.png"
-                    name="JavaScript"
-                    role="specialize"
-                  />
-
-                  <Tech
-                    image="/img/tailwind.png"
-                    name="Tailwindcss"
-                    role="specialize"
-                  />
-
-                  <Tech image="/img/typescript.png" name="TypeScript" role="" />
-
-                  <Tech image="/img/html.png" name="HTML" role="" />
-
-                  <Tech image="/img/css.png" name="CSS" role="" />
-                </div>
               </div>
+
+              <ul className="ml-auto text-[#E8BD70]">
+                <li>Clean design.</li>
+                <li>Solid engineering.</li>
+                <li>Real impact.</li>
+              </ul>
             </div>
 
-            <div
-              className="
-                my-12 lg:my-18
-                h-px w-full
-                bg-gradient-to-r
-                from-transparent
-                via-[#E8BD70]/50
-                to-transparent
-              "
-            />
+            <div className="flex w-full gap-8 mt-15">
+              <div
+                className="
+                  border-2 border-[#E8BD70]/40 rounded-xl w-[50%] px-10 py-10
+                  transition duration-300 flex group
+                  hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
+                "
+              >
+                <div className="flex flex-col">
+                  <span className="gold-gradient text-[1rem] tracking-[0.2em]">
+                    01
+                  </span>
 
-            <div
-              className="
-                flex min-w-0
-                flex-col
-                lg:flex-row
-              "
-            >
-              <div className="min-w-0">
-                <h1 className="text-3xl font-bold sm:text-4xl">
-                  {t.services.backendTitle}
-                </h1>
+                  <h1 className="text-4xl font-bold mt-8">Frontend</h1>
+                  <p className="text-[#9f9fa7] max-w-sm mt-4">
+                    Modern, responsive and high-performing interfaces that look
+                    impressive, feel intuitive and create a great user
+                    experience
+                  </p>
 
-                <p
-                  className="
-                    mt-5
-                    text-base sm:text-lg lg:text-xl
-                    leading-relaxed
-                    text-[#9f9fa8]
-                  "
-                >
-                  {t.services.backendText}
-                </p>
+                  <div className="flex items-center mt-8 gap-4">
+                    <Tech image="/img/react.png" name="React" role="none" />
+                    <Tech
+                      image="/img/javascript.png"
+                      name="Javascript"
+                      role="none"
+                    />
+                    <Tech
+                      image="/img/tailwind.png"
+                      name="Tailwind"
+                      role="none"
+                    />
+                    <Tech image="/img/vite.svg" name="Vite" role="none" />
 
-                <h2 className="mt-10 text-xl font-bold sm:text-2xl lg:mt-12">
-                  {t.services.tech}
-                </h2>
-
-                <div className="mt-4 flex max-w-2xl flex-wrap gap-3">
-                  <Tech image="/img/java.png" name="Java" role="specialize" />
-
-                  <Tech
-                    image="/img/nodejs.png"
-                    name="Node.js"
-                    role="specialize"
-                  />
-
-                  <Tech
-                    image="/img/postgresql.png"
-                    name="Postgresql"
-                    role="specialize"
-                  />
-
-                  <Tech image="/img/spring.png" name="Spring Boot" role="" />
-
-                  <Tech image="/img/mysql.png" name="Mysql" role="" />
+                    <span className="text-[#5b5e5e]">and more...</span>
+                  </div>
                 </div>
+
+                <div className="group flex flex-col justify-center items-end min-h-auto ml-auto">
+                  <span className="text-[#5b5e5e] group-hover:text-[#E8BD70] text-[1rem] transition duration-200">
+                    See more...
+                  </span>
+                  <ArrowRightIcon
+                    size={30}
+                    className="
+                      mt-3 text-[#5b5e5e] group-hover:text-[#E8BD70]
+                      transition duration-200 group-hover:translate-x-2
+                    "
+                  />
+                </div>
+              </div>
+
+              <div
+                className="
+                  border-2 border-[#E8BD70]/40 rounded-xl w-[50%] px-10 py-10
+                  transition duration-300 flex group
+                  hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
+                "
+              >
+                <div className="flex flex-col">
+                  <span className="gold-gradient text-[1rem] tracking-[0.2em]">
+                    02
+                  </span>
+
+                  <h1 className="text-4xl font-bold mt-8">
+                    Backend + Database
+                  </h1>
+                  <p className="text-[#9f9fa7] max-w-sm mt-4">
+                    Reliable server-side systems and database solutions with
+                    focus on security, scalability, performance, and
+                    maintainability.
+                  </p>
+
+                  <div className="flex items-center mt-8 gap-4">
+                    <Tech image="/img/nodejs.png" name="Node.js" role="none" />
+                    <Tech image="/img/java.png" name="Java" role="none" />
+                    <Tech image="/img/python.png" name="Python" role="none" />
+
+                    <span className="text-[#5b5e5e]">and more...</span>
+                  </div>
+                </div>
+
+                <button className="group flex flex-col justify-center items-end min-h-auto cursor-pointer ml-auto">
+                  <span className="text-[#5b5e5e] group-hover:text-[#E8BD70] text-[1rem] transition duration-200">
+                    See more...
+                  </span>
+                  <ArrowRightIcon
+                    size={30}
+                    className="
+                      mt-3 text-[#5b5e5e] group-hover:text-[#E8BD70]
+                      transition duration-200 group-hover:translate-x-2
+                    "
+                  />
+                </button>
               </div>
             </div>
           </Reveal>
@@ -286,7 +275,7 @@ export default function Mainsite({ t }: Trans) {
         <section
           id="about"
           className="
-            relative flex min-h-screen
+            relative flex
             px-5 py-10
             sm:px-8
             lg:px-20 lg:py-15
@@ -301,134 +290,165 @@ export default function Mainsite({ t }: Trans) {
               className="
                 flex
                 w-full
-                flex-col
-                gap-10
-                lg:flex-row lg:gap-20
+                flex-col 
+                lg:flex-row lg:gap-5
               "
             >
-              <div className="mt-0 w-full lg:mt-20">
-                <h1 className="mb-5 text-3xl">{t.aboutMe.who}</h1>
+              <div className="mt-0 w-full lg:mt-5">
+                <h1 className="mb-5 font-bold text-5xl">More than just code</h1>
 
                 <p
                   className="
-                    text-sm sm:text-base lg:text-lg
+                    text-sm sm:text-base lg:text-base
                     leading-relaxed
                     text-[#9f9fa8]
                   "
                 >
-                  {t.aboutMe.para1}
+                  I started coding because I was curious about how the websites
+                  and applications I used every day were built. Through
+                  experimenting, breaking things, and fixing them, that
+                  curiosity grew into a real interest in software development
+                  and turning ideas into something useful.
                 </p>
-
-                <br />
 
                 <p
                   className="
-                    text-sm sm:text-base lg:text-lg mt-2 lg:mt-4
+                    text-sm sm:text-base lg:text-base mt-2 lg:mt-6
                     leading-relaxed
                     text-[#9f9fa8]
                   "
                 >
-                  {t.aboutMe.para2}
+                  As I learned more, I became interested in both the visual and
+                  technical sides of development. Frontend let me combine design
+                  with code, while backend, databases, and data engineering
+                  helped me understand what happens behind the interface and
+                  build more complete applications.
                 </p>
+              </div>
 
-                <ul
-                  className="
-                    mt-10
-                    grid grid-cols-2
-                    gap-6 justify-center
-                    xl:flex xl:gap-5
-                    lg:mt-12
-                  "
-                >
-                  <div className="flex gap-3">
-                    <MapPin className="mt-1 shrink-0 text-[#E8BD70]" />
+              <div className="flex flex-col gap-5 justify-center">
+                <div className="flex gap-5">
+                  <div
+                    className="
+                    w-100 h-30 group flex gap-4 items-center px-4 py-4 border 
+                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
+                    transition duration-200
+                    "
+                  >
+                    <MapPin className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
 
                     <div>
-                      <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
+                      <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
                         {t.aboutMe.based}
-                      </h2>
+                      </h1>
 
-                      <li>{t.aboutMe.loc}</li>
+                      <p className="mt-1">{t.aboutMe.loc}</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
-                    <Code2 className="mt-1 shrink-0 text-[#E8BD70]" />
+                  <div
+                    className="
+                    w-100 h-30 group flex gap-4 items-center px-4 py-4 border 
+                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
+                    transition duration-200
+                    "
+                  >
+                    <Code2 className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
 
                     <div>
-                      <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
+                      <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
                         {t.aboutMe.focus}
-                      </h2>
+                      </h1>
 
-                      {t.aboutMe.focusList.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
+                      <div className="flex flex-col mt-1">
+                        {t.aboutMe.focusList.map((item) => (
+                          <span key={item}>{item}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                </div>
 
-                  <div className="flex gap-3">
-                    <GraduationCap className="mt-1 shrink-0 text-[#E8BD70]" />
+                <div className="flex gap-5">
+                  <div
+                    className="
+                    w-100 h-30 group flex gap-4 items-center px-4 py-4 border 
+                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
+                    transition duration-200
+                    "
+                  >
+                    <GraduationCap className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
 
                     <div>
-                      <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
+                      <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
                         {t.aboutMe.currently}
-                      </h2>
+                      </h1>
 
-                      {t.aboutMe.currentlyList.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
+                      <div className="flex flex-col mt-1">
+                        {t.aboutMe.currentlyList.map((item) => (
+                          <span key={item}>{item}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  <div className="flex gap-3">
-                    <ChartNoAxesColumnIncreasing className="mt-1 shrink-0 text-[#E8BD70]" />
+                  <div
+                    className="
+                    w-100 h-30 group flex gap-4 items-center px-4 py-4 border 
+                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
+                    transition duration-200
+                    "
+                  >
+                    <ChartNoAxesColumnIncreasing className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
 
                     <div>
-                      <h2 className="text-sm tracking-[0.15em] text-[#E8BD70]">
+                      <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
                         {t.aboutMe.interest}
-                      </h2>
+                      </h1>
 
-                      {t.aboutMe.interestList.map((item) => (
-                        <li key={item}>{item}</li>
-                      ))}
+                      <div className="flex flex-col mt-1 text-sm">
+                        {t.aboutMe.interestList.map((item) => (
+                          <span key={item}>{item}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </ul>
+                </div>
+              </div>
+            </div>
 
-                <button
-                  commandFor="contact-dialog"
-                  command="show-modal"
-                  className="
+            <button
+              commandFor="contact-dialog"
+              command="show-modal"
+              className="
                     group mt-12 lg:mt-10
-                    flex h-14 w-55
+                    flex h-14 w-55 px-6
                     cursor-pointer
                     items-center justify-center
                     rounded-xl mx-auto
-                    px-6
+                    hover:scale-[1.05] transition duration-200
                     bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)]
                   "
-                >
-                  <span
-                    className="
+            >
+              <span
+                className="
                       mr-auto
                       text-xl font-semibold
                       text-[#151515]
                     "
-                  >
-                    {t.aboutMe.touch}
-                  </span>
+              >
+                {t.aboutMe.touch}
+              </span>
 
-                  <ArrowRightIcon
-                    size={22}
-                    className="
+              <ArrowRightIcon
+                size={22}
+                className="
                       text-[#151515]
                       transition duration-200
                       group-hover:translate-x-2
                     "
-                  />
-                </button>
-              </div>
-            </div>
+              />
+            </button>
           </Reveal>
         </section>
       </main>
@@ -533,8 +553,8 @@ function AnimationLight({ Dir }: Dire) {
     <div
       className={`
         pointer-events-none absolute
-        ${position} top-1/2 h-200 lg:h-400 w-80 lg:w-325
-        -translate-y-1/2 ${gradient}
+        ${position} top-1/6 h-200 lg:h-400 w-80 lg:w-325
+        -translate-y-1/2 ${gradient} overflow-hidden
         transition-all duration-1000 ease-out
 
         ${

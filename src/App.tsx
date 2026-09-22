@@ -6,15 +6,15 @@ import ContactDialog from "./components/contactDialog";
 import { useState } from "react";
 import { translations } from "./translations";
 
-type Language = "no" | "en";
+type Language = "en" | "no";
 
 export default function App() {
-  const [language, setLanguage] = useState<Language>("no");
+  const [language, setLanguage] = useState<Language>("en");
 
   const t = translations[language];
 
   function toggleLanguage() {
-    setLanguage((current) => (current === "no" ? "en" : "no"));
+    setLanguage((current) => (current === "en" ? "no" : "en"));
   }
 
   return (
