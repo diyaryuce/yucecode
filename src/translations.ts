@@ -8,7 +8,7 @@ export const translations = {
     },
 
     hero: {
-      intro: "Hi, I,m",
+      intro: "Hi, I'm",
       desc: "I develop modern digital experiences that combine clean design, solid engineering, and intuitive user interaction.",
       connect: "Let's connect",
       moreAbout: "More about me",

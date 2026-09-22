@@ -64,7 +64,7 @@ export default function Mainsite({ t }: Trans) {
 
               <div
                 className="
-                  mt-5 flex
+                  mt-5 flex justify-center items-center
                   flex-col sm:flex-row
                   gap-4 sm:gap-6 lg:gap-10
                   sm:mt-8 lg:mt-10
@@ -105,7 +105,12 @@ export default function Mainsite({ t }: Trans) {
 
                 <a
                   href="#about"
-                  className="group flex items-center gap-3 justify-center"
+                  className="
+                    group flex items-center lg:gap-0 gap-5.75 justify-center border-1 lg:border-0
+                    mt-3 lg:mt-0 rounded-xl px-6 lg:px-0 h-14 lg:h-auto w-45 lg:w-auto
+
+                    border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg
+                  "
                   onClick={(e) => {
                     e.preventDefault();
 
@@ -116,7 +121,7 @@ export default function Mainsite({ t }: Trans) {
                 >
                   <span
                     className="
-                      text-lg
+                      text-base lg:text-lg
                       transition duration-200
                       group-hover:-translate-y-1
                       group-hover:scale-[1.01]
@@ -306,7 +311,7 @@ export default function Mainsite({ t }: Trans) {
 
                 <p
                   className="
-                    text-base sm:text-lg lg:text-xl
+                    text-sm sm:text-base lg:text-lg
                     leading-relaxed
                     text-[#9f9fa8]
                   "
@@ -318,7 +323,7 @@ export default function Mainsite({ t }: Trans) {
 
                 <p
                   className="
-                    text-base sm:text-lg lg:text-xl mt-4 lg:mt-8
+                    text-sm sm:text-base lg:text-lg mt-2 lg:mt-4
                     leading-relaxed
                     text-[#9f9fa8]
                   "
@@ -426,13 +431,6 @@ export default function Mainsite({ t }: Trans) {
             </div>
           </Reveal>
         </section>
-
-        <div
-          className="
-              absolute inset-0 z-10
-              bg-[radial-gradient(ellipse_110%_45%_at_50%_110%,rgba(29,30,30,1),transparent_40%)]
-            "
-        />
       </main>
     </>
   );
@@ -526,8 +524,8 @@ function AnimationLight({ Dir }: Dire) {
 
   const gradient =
     Dir === "left"
-      ? "bg-[radial-gradient(ellipse_at_left,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]"
-      : "bg-[radial-gradient(ellipse_at_right,rgba(42,36,24,0.45)_0%,rgba(21,21,21,0.65)_45%,rgba(21,21,21,0.9)_100%)]";
+      ? "bg-[radial-gradient(ellipse_at_left,rgb(42,36,24)_0%,rgba(21,21,21,0.65)_50%,rgba(21,21,21,0.9)_100%)]"
+      : "bg-[radial-gradient(ellipse_at_right,rgb(42,36,24)_0%,rgba(21,21,21,0.65)_50%,rgba(21,21,21,0.9)_100%)]";
 
   const hiddenPosition = Dir === "left" ? "-translate-x-32" : "translate-x-32";
 
@@ -535,7 +533,7 @@ function AnimationLight({ Dir }: Dire) {
     <div
       className={`
         pointer-events-none absolute
-        ${position} top-1/2 h-200 lg:h-400 w-160 lg:w-325
+        ${position} top-1/2 h-200 lg:h-400 w-80 lg:w-325
         -translate-y-1/2 ${gradient}
         transition-all duration-1000 ease-out
 
