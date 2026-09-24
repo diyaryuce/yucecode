@@ -1,4 +1,4 @@
-import { MailPlusIcon, Copy } from "lucide-react";
+import { MailPlusIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { translations } from "../translations";
 
