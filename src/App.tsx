@@ -1,7 +1,7 @@
-import Navbar from "./components/navbar";
-import Mainsite from "./components/mainsite";
-import Footer from "./components/footer";
-import ContactDialog from "./components/contactDialog";
+import Navbar from "./components/Navbar";
+import Mainsite from "./components/Mainsite";
+import Footer from "./components/Footer";
+import ContactDialog from "./components/ContactDialog";
 
 import { useState } from "react";
 import { translations } from "./translations";

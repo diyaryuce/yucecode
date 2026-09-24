@@ -30,45 +30,27 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
   return (
     <>
       <header className="fixed top-0 z-50 w-full bg-transparent">
-        <nav
-          className="
-            fixed top-0 left-1/2 z-50
-            -translate-x-1/2
-            mt-3 sm:mt-4
-            flex items-center justify-center
-            w-[95%] sm:w-fit
-            px-2 sm:px-5
-            py-3 sm:py-5
-            bg-transparent
-          "
-        >
-          <button
-            onClick={toggleLanguage}
-            className="
-            flex h-9.5 lg:h-11 w-11 lg:w-13 px-3 sm:px-3 py-2 group
-            hover:scale-[1.05] transition duration-200
-            items-center justify-center rounded-xl cursor-pointer text-xs lg:text-base font-semibold 
-            border border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg tracking-wide
-            
-            "
-          >
-            <span>{language === "en" ? "NO" : "EN"}</span>
-          </button>
-
+        <div className="relative mt-3 w-full sm:mt-4">
           <nav
             className={`
+              fixed
+              left-1/2
+              top-3 sm:top-4
+              z-50
+              -translate-x-1/2
+
               font-outfit
               flex items-center
-              gap-2 sm:gap-4
-              px-3 sm:px-4
-              py-2
-              rounded-xl
+              gap-2 sm:gap-6
+              px-3 sm:px-6
+              py-3
+
               transition duration-300
 
               ${
                 atTop
-                  ? "bg-transparent border-transparent ml-2 mr-3 lg:ml-4 lg:mr-5 "
-                  : "bg-[#151515]/80 backdrop-blur-lg border rounded-xl border-white/10 ml-1.75 mr-2.75 lg:ml-3.75 lg:mr-4.75"
+                  ? "bg-transparent border-transparent"
+                  : "bg-[#151515]/80 backdrop-blur-lg border rounded-3xl border-white/10"
               }
             `}
           >
@@ -148,10 +130,32 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
             </button>
           </nav>
 
-          <div className="hidden sm:block">
-            <EmailButton />
+          <div
+            className="
+              fixed
+              top-3 sm:top-4
+              left-5 sm:left-8 lg:left-12
+              z-50
+              flex items-center justify-center
+            "
+          >
+            <button
+              onClick={toggleLanguage}
+              className="
+            flex h-9.5 lg:h-12 w-11 lg:w-14 px-3 lg:px-5 py-3 group mr-4
+            hover:scale-[1.05] transition duration-200
+            items-center justify-center rounded-3xl cursor-pointer text-xs lg:text-base font-semibold 
+            border border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg tracking-wide
+            "
+            >
+              <span>{language === "en" ? "NO" : "EN"}</span>
+            </button>
+
+            <div className="hidden sm:block">
+              <EmailButton />
+            </div>
           </div>
-        </nav>
+        </div>
       </header>
     </>
   );
@@ -207,31 +211,21 @@ function EmailButton() {
         <div
           className="
             absolute left-0 top-0
-            h-11 w-12
-            rounded-xl
+            h-12 w-14
+            rounded-3xl
             border border-white/10 bg-[#151515]/80 backdrop-blur-lg
             shrink-0
             whitespace-nowrap
             transition-all
             duration-300
             ease-in-out
-            group-hover:w-[265px]
+            group-hover:w-[240px]
           "
         >
-          <MailPlusIcon
-            size={18}
-            className="
-              absolute left-3.5 top-1/2
-              -translate-y-1/2
-              group-hover:text-[#E8BD70]
-              transition duration-300
-            "
-          />
-
           <span
             className="
               pointer-events-none
-              absolute left-11 top-1/2
+              absolute left-12 top-1/2
               -translate-y-1/2
               whitespace-nowrap
               opacity-0
@@ -244,18 +238,13 @@ function EmailButton() {
             {email}
           </span>
 
-          <Copy
-            size={18}
+          <MailPlusIcon
+            size={22}
             className="
-              pointer-events-none
-              absolute left-57.5 top-1/2
+              absolute left-4 top-1/2
               -translate-y-1/2
-              whitespace-nowrap
-              opacity-0
-              transition-opacity
-              duration-200
-              group-hover:opacity-100
-              text-[#E8BD70]
+              group-hover:text-[#E8BD70]
+              transition duration-300
             "
           />
 
