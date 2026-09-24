@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "lucide-react";
 import Reveal from "./Reveal";
 import { translations } from "../translations";
 import Tech from "./Tech";
+import Typewriter from "./Typewriter";
 
 type Trans = {
   t: typeof translations.en;
@@ -24,7 +25,10 @@ export default function Services({ t }: Trans) {
         <div className="flex items-center">
           <div className="flex flex-col gap-4">
             <h1 className="font-bold text-5xl">
-              Building digital experiences end to end.
+              <Typewriter
+                text="Building digital experiences end to end."
+                speed={40}
+              />
             </h1>
             <p className="max-w-lg text-[#9f9fa7]">
               I develop modern, scalable and user-centered web applications,
@@ -80,15 +84,6 @@ export default function Services({ t }: Trans) {
                     "
               />
             </button>
-
-            <img
-              src="/img/backend2.png"
-              className="absolute
-                w-64
-                h-auto
-                object-contain
-              "
-            />
           </div>
 
           <div

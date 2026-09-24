@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Reveal from "./Reveal";
 import { translations } from "../translations";
+import Typewriter from "./Typewriter";
 
 type Trans = {
   t: typeof translations.en;
@@ -36,8 +37,10 @@ export default function About({ t }: Trans) {
                 lg:flex-row lg:gap-5
               "
         >
-          <div className="mt-0 w-full lg:mt-5">
-            <h1 className="mb-5 font-bold text-5xl">More than just code</h1>
+          <div className="w-full">
+            <h1 className="mb-5 font-bold text-5xl">
+              <Typewriter text="More than just code." speed={40} />
+            </h1>
 
             <p
               className="

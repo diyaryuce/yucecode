@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "lucide-react";
-import Reveal from "./Reveal";
 import { translations } from "../translations";
+import Reveal from "./Reveal";
+import Typewriter from "./Typewriter";
 
 type Trans = {
   t: typeof translations.en;
@@ -38,7 +39,7 @@ export default function Hero({ t }: Trans) {
                   lg:text-6xl
                 "
           >
-            A. Diyar Yüce
+            <Typewriter text="A. Diyar Yüce" speed={100} />
           </h1>
 
           <p
