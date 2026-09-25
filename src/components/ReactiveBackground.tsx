@@ -17,13 +17,16 @@ export default function ReactiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
+    const canvasElement = canvasRef.current;
 
-    if (!canvas) return;
+    if (!canvasElement) return;
 
-    const ctx = canvas.getContext("2d");
+    const context = canvasElement.getContext("2d");
 
-    if (!ctx) return;
+    if (!context) return;
+
+    const canvas: HTMLCanvasElement = canvasElement;
+    const ctx: CanvasRenderingContext2D = context;
 
     let animationId: number;
 
