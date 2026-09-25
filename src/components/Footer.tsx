@@ -20,6 +20,7 @@ export default function Footer({ t }: Trans) {
           font-outfit
           relative
           sm:px-8
+          bg-[#151515]
 
           lg:flex-row
           lg:gap-50

@@ -1,4 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+type Dire = {
+  Dir: "left" | "right";
+};
 
 export default function AnimationLight({ Dir }: Dire) {
   const [lightActive, setLightActive] = useState(false);
@@ -11,7 +15,7 @@ export default function AnimationLight({ Dir }: Dire) {
     return () => clearTimeout(timeout);
   }, []);
 
-  const position = Dir === "left" ? "left-[-15%]" : "right-[-15%]";
+  const position = Dir === "left" ? "left-[-20%]" : "right-[-20%]";
 
   const gradient =
     Dir === "left"
@@ -23,10 +27,22 @@ export default function AnimationLight({ Dir }: Dire) {
   return (
     <div
       className={`
-        pointer-events-none absolute
-        ${position} top-1/6 h-200 lg:h-400 w-80 lg:w-325
-        -translate-y-1/2 ${gradient} overflow-hidden
-        transition-all duration-1000 ease-out
+        pointer-events-none
+        absolute
+        ${position}
+
+        top-1/6
+
+        h-[clamp(65rem,140vw,100rem)]
+        w-[clamp(55rem,100vw,80rem)]
+
+        -translate-y-5/11
+
+        ${gradient}
+
+        transition-all
+        duration-1000
+        ease-out
 
         ${
           lightActive
@@ -37,7 +53,3 @@ export default function AnimationLight({ Dir }: Dire) {
     />
   );
 }
-
-type Dire = {
-  Dir: "left" | "right";
-};

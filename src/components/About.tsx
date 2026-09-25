@@ -5,6 +5,8 @@ import {
   GraduationCap,
   ChartNoAxesColumnIncreasing,
 } from "lucide-react";
+
+import InfoCard from "./InfoCard";
 import Reveal from "./Reveal";
 import { translations } from "../translations";
 import Typewriter from "./Typewriter";
@@ -18,182 +20,178 @@ export default function About({ t }: Trans) {
     <section
       id="about"
       className="
-            relative flex
-            px-5 py-10
-            sm:px-8
-            lg:px-20 lg:py-15
-          "
+        relative
+        flex w-full
+        px-5 py-12
+        sm:px-8 sm:py-14
+        lg:px-12 lg:py-16
+        xl:px-20
+      "
     >
       <Reveal>
-        <h1 className="gold-gradient mb-10 text-sm lg:text-lg tracking-[0.2em]">
-          {t.aboutMe.about}
-        </h1>
-
-        <div
-          className="
-                flex
-                w-full
-                flex-col 
-                lg:flex-row lg:gap-5
-              "
-        >
-          <div className="w-full">
-            <h1 className="mb-5 font-bold text-5xl">
-              <Typewriter text="More than just code." speed={40} />
-            </h1>
-
-            <p
-              className="
-                    text-sm sm:text-base lg:text-base
-                    leading-relaxed
-                    text-[#9f9fa8]
-                  "
-            >
-              I started coding because I was curious about how the websites and
-              applications I used every day were built. Through experimenting,
-              breaking things, and fixing them, that curiosity grew into a real
-              interest in software development and turning ideas into something
-              useful.
-            </p>
-
-            <p
-              className="
-                    text-sm sm:text-base lg:text-base mt-2 lg:mt-6
-                    leading-relaxed
-                    text-[#9f9fa8]
-                  "
-            >
-              As I learned more, I became interested in both the visual and
-              technical sides of development. Frontend let me combine design
-              with code, while backend, databases, and data engineering helped
-              me understand what happens behind the interface and build more
-              complete applications.
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-5 justify-center">
-            <div className="flex gap-5">
-              <div
-                className="
-                    w-80 h-30 group flex gap-4 items-center px-4 py-4 border 
-                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
-                    transition duration-200
-                    "
-              >
-                <MapPin className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
-
-                <div>
-                  <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
-                    {t.aboutMe.based}
-                  </h1>
-
-                  <p className="mt-1">{t.aboutMe.loc}</p>
-                </div>
-              </div>
-
-              <div
-                className="
-                    w-80 h-30 group flex gap-4 items-center px-4 py-4 border 
-                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
-                    transition duration-200
-                    "
-              >
-                <Code2 className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
-
-                <div>
-                  <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
-                    {t.aboutMe.focus}
-                  </h1>
-
-                  <div className="flex flex-col mt-1">
-                    {t.aboutMe.focusList.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-5">
-              <div
-                className="
-                    w-80 h-30 group flex gap-4 items-center px-4 py-4 border 
-                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
-                    transition duration-200
-                    "
-              >
-                <GraduationCap className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
-
-                <div>
-                  <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
-                    {t.aboutMe.currently}
-                  </h1>
-
-                  <div className="flex flex-col mt-1">
-                    {t.aboutMe.currentlyList.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="
-                    w-80 h-30 group flex gap-4 items-center px-4 py-4 border 
-                    border-[#E8BD70]/40 rounded-xl hover:scale-[1.02] hover:-translate-y-1 hover:bg-[#E8BD70]/2
-                    transition duration-200
-                    "
-              >
-                <ChartNoAxesColumnIncreasing className="text-[#9f9fa8] group-hover:text-[#E8BD70] transition duration-200" />
-
-                <div>
-                  <h1 className="text-[#9f9fa8] group-hover:text-[#E8BD70] text-xs lg:text-sm tracking-[0.2em] transition duration-200">
-                    {t.aboutMe.interest}
-                  </h1>
-
-                  <div className="flex flex-col mt-1 text-sm">
-                    {t.aboutMe.interestList.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button
-          commandFor="contact-dialog"
-          command="show-modal"
-          className="
-                    group mt-12 lg:mt-10
-                    flex h-14 w-55 px-6
-                    cursor-pointer
-                    items-center justify-center
-                    rounded-xl mx-auto
-                    hover:scale-[1.05] transition duration-200
-                    bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)]
-                  "
-        >
-          <span
+        <div className="mx-auto w-full">
+          <h1
             className="
-                      mr-auto
-                      text-xl font-semibold
-                      text-[#151515]
-                    "
+              gold-gradient
+              mb-10
+              text-sm
+              tracking-[0.2em]
+              lg:text-lg
+            "
           >
-            {t.aboutMe.touch}
-          </span>
+            {t.aboutMe.about}
+          </h1>
 
-          <ArrowRightIcon
-            size={22}
+          <div
             className="
-                      text-[#151515]
-                      transition duration-200
-                      group-hover:translate-x-2
-                    "
-          />
-        </button>
+              flex w-full
+              flex-col
+              gap-10
+
+              lg:flex-row
+              lg:items-center
+              lg:gap-12
+
+              xl:gap-20
+            "
+          >
+            <div className="w-full">
+              <h1
+                className="
+                  mb-5
+                  text-[clamp(2rem,5vw,3rem)]
+                  font-bold
+                  leading-tight
+                "
+              >
+                <Typewriter text="More than just code." speed={40} />
+              </h1>
+
+              <p
+                className="
+                  text-sm
+                  leading-relaxed
+                  text-[#9f9fa8]
+                  sm:text-base
+                "
+              >
+                I started coding because I was curious about how the websites
+                and applications I used every day were built. Through
+                experimenting, breaking things, and fixing them, that curiosity
+                grew into a real interest in software development and turning
+                ideas into something useful.
+              </p>
+
+              <p
+                className="
+                  mt-4
+                  text-sm
+                  leading-relaxed
+                  text-[#9f9fa8]
+                  sm:text-base
+                  lg:mt-6
+                "
+              >
+                As I learned more, I became interested in both the visual and
+                technical sides of development. Frontend let me combine design
+                with code, while backend, databases, and data engineering helped
+                me understand what happens behind the interface and build more
+                complete applications.
+              </p>
+            </div>
+
+            <div
+              className="
+                grid w-full
+                grid-cols-1
+                gap-4
+                ml-auto
+                max-w-xs
+                mx-auto
+
+                sm:grid-cols-2
+
+                lg:max-w-2xl
+                lg:gap-5
+              "
+            >
+              <InfoCard icon={<MapPin />} title={t.aboutMe.based}>
+                <p>{t.aboutMe.loc}</p>
+              </InfoCard>
+
+              <InfoCard icon={<Code2 />} title={t.aboutMe.focus}>
+                <div className="flex flex-col">
+                  {t.aboutMe.focusList.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </InfoCard>
+
+              <InfoCard icon={<GraduationCap />} title={t.aboutMe.currently}>
+                <div className="flex flex-col">
+                  {t.aboutMe.currentlyList.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </InfoCard>
+
+              <InfoCard
+                icon={<ChartNoAxesColumnIncreasing />}
+                title={t.aboutMe.interest}
+              >
+                <div className="flex flex-col text-sm">
+                  {t.aboutMe.interestList.map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </InfoCard>
+            </div>
+          </div>
+
+          <button
+            commandFor="contact-dialog"
+            command="show-modal"
+            className="
+              group
+              mx-auto
+              mt-12
+              flex h-14
+              w-full max-w-55
+              cursor-pointer
+              items-center justify-center
+              rounded-xl
+              px-6
+
+              bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)]
+
+              transition duration-200
+              hover:scale-[1.05]
+
+              sm:w-55
+            "
+          >
+            <span
+              className="
+                mr-auto
+                text-lg
+                font-semibold
+                text-[#151515]
+                sm:text-xl
+              "
+            >
+              {t.aboutMe.touch}
+            </span>
+
+            <ArrowRightIcon
+              size={22}
+              className="
+                text-[#151515]
+                transition duration-200
+                group-hover:translate-x-2
+              "
+            />
+          </button>
+        </div>
       </Reveal>
     </section>
   );

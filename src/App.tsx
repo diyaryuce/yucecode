@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import Mainsite from "./components/Mainsite";
 import Footer from "./components/Footer";
 import ContactDialog from "./components/ContactDialog";
+import ReactiveBackground from "./components/ReactiveBackground";
 
 import { useState } from "react";
 import { translations } from "./translations";
@@ -18,20 +19,18 @@ export default function App() {
   }
 
   return (
-    <>
-      <div>
-        <Navbar t={t} language={language} toggleLanguage={toggleLanguage} />
-        <Mainsite t={t} />
-        <Footer t={t} />
+    <div className="relative min-h-screen">
+      <ReactiveBackground />
 
-        <ContactDialog t={t} />
+      <div className="relative z-10">
+        <Navbar t={t} language={language} toggleLanguage={toggleLanguage} />
+
+        <Mainsite t={t} />
+
+        <Footer t={t} />
       </div>
-    </>
+
+      <ContactDialog t={t} />
+    </div>
   );
 }
-
-/**
- * <h1 className="flex text-[clamp(1.425rem,4vw,2.5rem)] text-white font-bold shrink-0 ">
- *  dev branch test
- * </h1>
- */

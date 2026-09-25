@@ -15,7 +15,7 @@ export default function Hero({ t }: Trans) {
             relative flex min-h-screen flex-col
             items-center justify-center
             overflow-hidden w-full
-            px-5 sm:px-8 lg:px-10
+            px-5 sm:px-8 lg:px-10 xl:px-20
           "
     >
       <Reveal>
@@ -97,7 +97,7 @@ export default function Hero({ t }: Trans) {
               href="#about"
               className="
                     group flex items-center lg:gap-0 gap-5.75 justify-center border-2
-                    mt-3 lg:mt-0 rounded-xl px-6 h-14 w-50 lg:w-45
+                    mt-3 lg:mt-0 rounded-xl px-4 h-14 w-50 lg:w-45
                     hover:scale-[1.05] transition duration-200
 
                     border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg

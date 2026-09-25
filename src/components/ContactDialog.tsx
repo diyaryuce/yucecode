@@ -10,8 +10,9 @@ export default function ContactDialog({ t }: Trans) {
     <dialog
       id="contact-dialog"
       className="
-      rounded-xl bg-[#202020]/95 border-2 border-[#202020] p-8 font-outfit 
-      mx-auto my-auto items-start w-120 fixed
+        rounded-xl bg-[#202020]/95 border-2 border-[#202020] p-8 font-outfit 
+        mx-auto my-auto items-start w-[calc(100%-4rem)]
+        max-w-[30rem] fixed
     "
     >
       <div className="flex flex-col items-start">
