@@ -1,12 +1,63 @@
 import { ArrowRightIcon, X } from "lucide-react";
 import { translations } from "../translations";
 import type { SyntheticEvent } from "react";
+import { useState } from "react";
 
 type Trans = {
   t: typeof translations.no;
 };
 
 export default function ContactDialog({ t }: Trans) {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    setError("");
+    setSuccess("");
+
+    const form = e.currentTarget;
+    const formData = new FormData(e.currentTarget);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    try {
+      const API_URL = import.meta.env.VITE_API_URL;
+
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSuccess("Message sent successfully!");
+
+      form.reset();
+
+      setTimeout(() => {
+        const dialog = document.getElementById(
+          "contact-dialog",
+        ) as HTMLDialogElement;
+
+        dialog.close();
+        setSuccess("");
+      }, 1200);
+    } catch (error) {
+      setError("Something went wrong. Please try again.");
+    }
+  }
+
   return (
     <dialog
       id="contact-dialog"
@@ -72,7 +123,13 @@ export default function ContactDialog({ t }: Trans) {
             />
           </div>
 
-          <div className="flex items-center gap-6 mt-2">
+          <div>
+            {error && <p className="text-sm text-red-400">{error}</p>}
+
+            {success && <p className="text-sm text-green-400">{success}</p>}
+          </div>
+
+          <div className="flex items-center justify-center gap-6 mt-2">
             <button
               type="submit"
               className="
@@ -100,7 +157,7 @@ export default function ContactDialog({ t }: Trans) {
               commandFor="contact-dialog"
               className="
                 group flex items-center justify-center border-2
-                rounded-xl lg:w-45 w-30 h-10.5 px-5 py-6
+                rounded-xl w-30 h-10.5 px-5 py-6
                 hover:scale-[1.05] active:scale-[1.1] transition duration-200
 
                 border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg
@@ -120,44 +177,4 @@ export default function ContactDialog({ t }: Trans) {
       </div>
     </dialog>
   );
-}
-
-async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
-  e.preventDefault();
-
-  const formData = new FormData(e.currentTarget);
-
-  const data = {
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  };
-
-  try {
-    const API_URL = import.meta.env.VITE_API_URL;
-
-    const response = await fetch(`${API_URL}/api/contact`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to send message");
-    }
-
-    const result = await response.json();
-
-    console.log(result);
-
-    const dialog = document.getElementById(
-      "contact-dialog",
-    ) as HTMLDialogElement;
-
-    dialog.close();
-  } catch (error) {
-    console.error("Something went wrong:", error);
-  }
 }

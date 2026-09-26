@@ -80,7 +80,7 @@ export default function Footer({ t }: Trans) {
             <Phone size={21} className="shrink-0 text-[#b2b2a8]" />
 
             <span className="text-sm sm:text-base text-[#b2b2a8]">
-              +47 <span className="ml-4">-----</span>
+              +47 <span className="ml-1">908 33 022</span>
             </span>
           </div>
 
