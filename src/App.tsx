@@ -7,15 +7,15 @@ import ReactiveBackground from "./components/ReactiveBackground";
 import { useState } from "react";
 import { translations } from "./translations";
 
-type Language = "en" | "no";
+type Language = "no" | "en";
 
 export default function App() {
-  const [language, setLanguage] = useState<Language>("en");
+  const [language, setLanguage] = useState<Language>("no");
 
   const t = translations[language];
 
   function toggleLanguage() {
-    setLanguage((current) => (current === "en" ? "no" : "en"));
+    setLanguage((current) => (current === "no" ? "en" : "no"));
   }
 
   return (

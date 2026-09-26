@@ -11,11 +11,11 @@ import Reveal from "./Reveal";
 import { translations } from "../translations";
 import Typewriter from "./Typewriter";
 
-type Trans = {
+type AboutProps = {
   t: typeof translations.en;
 };
 
-export default function About({ t }: Trans) {
+export default function About({ t }: AboutProps) {
   return (
     <section
       id="about"
@@ -64,7 +64,7 @@ export default function About({ t }: Trans) {
                   leading-tight
                 "
               >
-                <Typewriter text="More than just code." speed={40} />
+                <Typewriter text={t.aboutMe.heading} speed={40} />
               </h1>
 
               <p
@@ -75,11 +75,7 @@ export default function About({ t }: Trans) {
                   sm:text-base
                 "
               >
-                I started coding because I was curious about how the websites
-                and applications I used every day were built. Through
-                experimenting, breaking things, and fixing them, that curiosity
-                grew into a real interest in software development and turning
-                ideas into something useful.
+                {t.aboutMe.para1}
               </p>
 
               <p
@@ -92,11 +88,7 @@ export default function About({ t }: Trans) {
                   lg:mt-6
                 "
               >
-                As I learned more, I became interested in both the visual and
-                technical sides of development. Frontend let me combine design
-                with code, while backend, databases, and data engineering helped
-                me understand what happens behind the interface and build more
-                complete applications.
+                {t.aboutMe.para2}
               </p>
             </div>
 

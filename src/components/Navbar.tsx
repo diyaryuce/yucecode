@@ -5,7 +5,7 @@ import EmailButton from "./EmailButton";
 import MenuDropdown from "./MenuDropdown";
 import NavOptions from "./NavOptions";
 
-type Language = "no" | "en";
+type Language = "en" | "no";
 
 type Trans = {
   t: typeof translations.no;

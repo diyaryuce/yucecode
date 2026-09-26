@@ -1,8 +1,11 @@
+import type { translations } from "../translations";
+
 type ServiceCardProps = {
   number: string;
   title: string;
   description: string;
   children: React.ReactNode;
+  t: typeof translations.en;
 };
 
 export default function ServiceCard({
@@ -10,6 +13,7 @@ export default function ServiceCard({
   title,
   description,
   children,
+  t,
 }: ServiceCardProps) {
   return (
     <div
@@ -92,7 +96,7 @@ export default function ServiceCard({
         >
           {children}
 
-          <span className="text-sm text-[#5b5e5e]">and more...</span>
+          <span className="text-sm text-[#5b5e5e]">{t.services.more}</span>
         </div>
       </div>
     </div>

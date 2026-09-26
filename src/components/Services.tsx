@@ -45,7 +45,7 @@ export default function Services({ t }: Trans) {
               lg:items-center
             "
           >
-            <div className="flex max-w-4xl flex-col gap-4">
+            <div className="flex max-w-5xl flex-col gap-4">
               <h1
                 className="
                   text-[clamp(2rem,5vw,3rem)]
@@ -53,15 +53,12 @@ export default function Services({ t }: Trans) {
                   leading-tight
                 "
               >
-                <Typewriter
-                  text="Building digital experiences end to end."
-                  speed={40}
-                />
+                <Typewriter text={t.services.heading} speed={40} />
               </h1>
 
               <p
                 className="
-                  max-w-xl
+                  max-w-2xl
                   text-sm
                   leading-relaxed
                   text-[#9f9fa7]
@@ -69,8 +66,7 @@ export default function Services({ t }: Trans) {
                   lg:text-lg
                 "
               >
-                I develop modern, scalable and user-centered web applications,
-                from intuitive frontends to robust backends and databases.
+                {t.services.intro}
               </p>
             </div>
 
@@ -89,9 +85,9 @@ export default function Services({ t }: Trans) {
                 lg:text-lg
               "
             >
-              <li>Clean design.</li>
-              <li>Solid engineering.</li>
-              <li>Real impact.</li>
+              {t.services.highlights.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
 
@@ -112,7 +108,8 @@ export default function Services({ t }: Trans) {
             <ServiceCard
               number="01"
               title={t.services.frontendTitle}
-              description="Modern, responsive and high-performing interfaces that look impressive, feel intuitive and create a great user experience."
+              description={t.services.frontendText}
+              t={t}
             >
               <Tech image="/img/react.png" name="React" />
               <Tech image="/img/javascript.png" name="Javascript" />
@@ -123,7 +120,8 @@ export default function Services({ t }: Trans) {
             <ServiceCard
               number="02"
               title={t.services.backendTitle}
-              description="Reliable server-side systems and database solutions with focus on security, scalability, performance, and maintainability."
+              description={t.services.backendText}
+              t={t}
             >
               <Tech image="/img/nodejs.png" name="Node.js" />
               <Tech image="/img/java.png" name="Java" />
