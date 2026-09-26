@@ -77,7 +77,7 @@ export default function ContactDialog({ t }: Trans) {
               type="submit"
               className="
               flex cursor-pointer justify-center items-center rounded-xl w-35 h-10.5 px-5 py-6 gap-3 group
-              bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)]
+              bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)] active:scale-[1.05]
             "
             >
               <span
@@ -98,11 +98,17 @@ export default function ContactDialog({ t }: Trans) {
               type="button"
               command="close"
               commandFor="contact-dialog"
-              className="group flex w-20 cursor-pointer"
+              className="
+                group flex items-center justify-center border-2
+                rounded-xl lg:w-45 w-30 h-10.5 px-5 py-6
+                hover:scale-[1.05] active:scale-[1.1] transition duration-200
+
+                border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg
+              "
             >
               <span
                 className="
-                text-lg group-hover:scale-[1.01] group-hover:-translate-y-1 transition duration-200
+                text-lg group-hover:scale-[1.1] group-hover:-translate-y-1 transition duration-200
                 group-hover:text-[#E8BD70] text-[#b2b2a8]
               "
               >

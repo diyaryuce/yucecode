@@ -11,50 +11,40 @@ type Navs = {
 export default function NavMenu({ name, id, t, icon: Icon }: Navs) {
   if (name === "contact") {
     return (
-      <div
-        className="
-          flex text-xl justify-center items-center w-full bg-[#151515]
-          border-2 border-[#404040] rounded-2xl gap-4
-          transition active:scale-[1.10]
-        "
+      <button
+        commandFor="contact-dialog"
+        command="show-modal"
+        className=" 
+            flex text-xl justify-center items-center w-full bg-[#151515]
+            border-2 border-[#404040] rounded-2xl gap-4
+            transition active:scale-[1.10]
+          "
       >
         <Icon />
 
-        <button
-          commandFor="contact-dialog"
-          command="show-modal"
-          className="
-        "
-        >
-          {t.nav.contact}
-        </button>
-      </div>
+        {t.nav.contact}
+      </button>
     );
   }
 
   return (
-    <div
-      className="flex text-xl justify-center items-center w-full bg-[#151515]
+    <a
+      href={`#${id}`}
+      onClick={(e) => {
+        e.preventDefault();
+
+        document.getElementById(id)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }}
+      className=" flex text-xl justify-center items-center w-full bg-[#151515]
         border-2 border-[#404040] rounded-2xl gap-4
         transition active:scale-[1.05]
       "
     >
       <Icon />
 
-      <a
-        href={`#${id}`}
-        onClick={(e) => {
-          e.preventDefault();
-
-          document.getElementById(id)?.scrollIntoView({
-            behavior: "smooth",
-          });
-        }}
-        className="
-      "
-      >
-        {t.nav[name]}
-      </a>
-    </div>
+      {t.nav[name]}
+    </a>
   );
 }

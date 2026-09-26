@@ -26,7 +26,7 @@ export default function Services({ t }: Trans) {
           <h1
             className="
               gold-gradient
-              mb-10
+              mb-5 lg:mb-8
               text-sm
               tracking-[0.2em]
               lg:text-lg
@@ -48,7 +48,7 @@ export default function Services({ t }: Trans) {
             <div className="flex max-w-5xl flex-col gap-4">
               <h1
                 className="
-                  text-[clamp(2rem,5vw,3rem)]
+                  text-[clamp(1.75rem,5vw,3rem)]
                   font-bold
                   leading-tight
                 "
@@ -113,6 +113,7 @@ export default function Services({ t }: Trans) {
             >
               <Tech image="/img/react.png" name="React" />
               <Tech image="/img/javascript.png" name="Javascript" />
+              <Tech image="/img/typescript.png" name="Typescript" hidden />
               <Tech image="/img/tailwind.png" name="Tailwind" />
               <Tech image="/img/vite.svg" name="Vite" />
             </ServiceCard>
@@ -125,6 +126,7 @@ export default function Services({ t }: Trans) {
             >
               <Tech image="/img/nodejs.png" name="Node.js" />
               <Tech image="/img/java.png" name="Java" />
+              <Tech image="/img/spring.png" name="Spring Boot" hidden />
               <Tech image="/img/python.png" name="Python" />
               <Tech image="/img/postgresql.png" name="PostgreSQL" />
             </ServiceCard>

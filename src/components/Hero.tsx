@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowDownIcon, ArrowRightIcon } from "lucide-react";
 import { translations } from "../translations";
 import Reveal from "./Reveal";
 import Typewriter from "./Typewriter";
@@ -121,7 +121,7 @@ export default function Hero({ t }: Trans) {
                 {t.hero.moreAbout}
               </span>
 
-              <ArrowRightIcon
+              <ArrowDownIcon
                 size={18}
                 className="
                   sm:hidden block 

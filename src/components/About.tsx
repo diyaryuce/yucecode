@@ -33,7 +33,7 @@ export default function About({ t }: AboutProps) {
           <h1
             className="
               gold-gradient
-              mb-10
+              mb-5 lg:mb-8
               text-sm
               tracking-[0.2em]
               lg:text-lg

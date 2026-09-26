@@ -1,4 +1,10 @@
-export default function Tech({ image, name }: Props) {
+type TechProps = {
+  image: string;
+  name: string;
+  hidden?: boolean;
+};
+
+export default function Tech({ image, name, hidden }: TechProps) {
   return (
     <div
       className={`
@@ -13,6 +19,8 @@ export default function Tech({ image, name }: Props) {
 
         transition duration-200 hover:scale-[1.05]
         hover:border-[#E8BD70] hover:bg-[#E8BD70]/10
+
+        ${hidden ? "lg:hidden" : ""}
       `}
     >
       <img src={image} className="h-auto w-5" />
@@ -21,8 +29,3 @@ export default function Tech({ image, name }: Props) {
     </div>
   );
 }
-
-type Props = {
-  image: string;
-  name: string;
-};

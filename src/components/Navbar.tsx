@@ -103,7 +103,7 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
             <button
               onClick={toggleLanguage}
               className="
-            h-9.5 lg:h-12 w-11 lg:w-14 group mr-4 mt-0.5
+            h-9.5 lg:h-12 w-11 lg:w-14 group mr-4 mt-0.5 active:scale-[1.05]
             hover:scale-[1.05] transition duration-200
             rounded-3xl cursor-pointer text-xs lg:text-base font-semibold 
             border border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg tracking-wide
@@ -121,6 +121,7 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
                 h-9.5 w-11 mr-2 mt-0.5 rounded-3xl
                 border border-white/10
                 flex justify-center items-center md:hidden
+                active:scale-[1.05]
               "
               >
                 <Menu size={20} />
