@@ -39,7 +39,6 @@ export default function Services({ t }: Trans) {
             className="
               flex
               flex-col
-              items-start
               gap-6
 
               lg:flex-row
@@ -80,6 +79,9 @@ export default function Services({ t }: Trans) {
                 text-sm
                 leading-relaxed
                 text-[#E8BD70]
+                flex lg:flex-col
+                gap-5 lg:gap-0
+                justify-center
 
                 sm:text-base
 
@@ -126,6 +128,7 @@ export default function Services({ t }: Trans) {
               <Tech image="/img/nodejs.png" name="Node.js" />
               <Tech image="/img/java.png" name="Java" />
               <Tech image="/img/python.png" name="Python" />
+              <Tech image="/img/postgresql.png" name="PostgreSQL" />
             </ServiceCard>
           </div>
         </div>

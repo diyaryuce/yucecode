@@ -69,7 +69,7 @@ export default function Hero({ t }: Trans) {
                     cursor-pointer
                     items-center justify-center
                     gap-3 rounded-xl
-                    hover:scale-[1.05] transition duration-200
+                    hover:scale-[1.05] active:scale-[1.10] transition duration-200
                     bg-[radial-gradient(50.42%_92.5%_at_50.42%_7.5%,#FFDFA7_0%,#E8BD70_100%)]
                   "
             >
@@ -98,7 +98,7 @@ export default function Hero({ t }: Trans) {
               className="
                     group flex items-center lg:gap-0 gap-5.75 justify-center border-2
                     mt-3 lg:mt-0 rounded-xl px-4 h-14 w-50 lg:w-45
-                    hover:scale-[1.05] transition duration-200
+                    hover:scale-[1.05] active:scale-[1.05] transition duration-200
 
                     border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg
                   "

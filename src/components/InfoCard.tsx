@@ -27,7 +27,7 @@ export default function InfoCard({ icon, title, children }: InfoCardProps) {
       <div
         className="
           shrink-0
-          text-[#9f9fa8]
+          lg:text-[#9f9fa8] text-[#E8BD70]
 
           transition duration-200
 
@@ -42,7 +42,7 @@ export default function InfoCard({ icon, title, children }: InfoCardProps) {
           className="
             text-xs
             tracking-[0.2em]
-            text-[#9f9fa8]
+            lg:text-[#9f9fa8] text-[#E8BD70]
 
             transition duration-200
 

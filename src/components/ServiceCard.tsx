@@ -1,4 +1,9 @@
-import { ArrowRightIcon } from "lucide-react";
+type ServiceCardProps = {
+  number: string;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+};
 
 export default function ServiceCard({
   number,
@@ -90,49 +95,6 @@ export default function ServiceCard({
           <span className="text-sm text-[#5b5e5e]">and more...</span>
         </div>
       </div>
-
-      <button
-        className="
-          mt-7
-          flex
-          cursor-pointer
-          items-center
-          gap-2
-          self-start
-
-          text-[#5b5e5e]
-
-          transition duration-200
-
-          group-hover:text-[#E8BD70]
-
-          lg:mt-0
-          lg:ml-6
-          lg:flex-col
-          lg:items-end
-          lg:justify-center
-          lg:self-auto
-        "
-      >
-        <span className="text-sm sm:text-base">See more...</span>
-
-        <ArrowRightIcon
-          size={26}
-          className="
-            transition duration-200
-            group-hover:translate-x-2
-
-            lg:mt-2
-          "
-        />
-      </button>
     </div>
   );
 }
-
-type ServiceCardProps = {
-  number: string;
-  title: string;
-  description: string;
-  children: React.ReactNode;
-};

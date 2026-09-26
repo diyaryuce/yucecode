@@ -1,5 +1,6 @@
 import { ArrowRightIcon, X } from "lucide-react";
 import { translations } from "../translations";
+import type { SyntheticEvent } from "react";
 
 type Trans = {
   t: typeof translations.no;
@@ -9,6 +10,11 @@ export default function ContactDialog({ t }: Trans) {
   return (
     <dialog
       id="contact-dialog"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          e.currentTarget.close();
+        }
+      }}
       className="
         rounded-xl bg-[#202020]/95 border-2 border-[#202020] p-8 font-outfit 
         mx-auto my-auto items-start w-[calc(100%-4rem)]
@@ -110,7 +116,7 @@ export default function ContactDialog({ t }: Trans) {
   );
 }
 
-async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+async function handleSubmit(e: SyntheticEvent<HTMLFormElement>) {
   e.preventDefault();
 
   const formData = new FormData(e.currentTarget);

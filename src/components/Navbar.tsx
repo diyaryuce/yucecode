@@ -1,6 +1,9 @@
-import { MailPlusIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Menu } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 import { translations } from "../translations";
+import EmailButton from "./EmailButton";
+import MenuDropdown from "./MenuDropdown";
+import NavOptions from "./NavOptions";
 
 type Language = "no" | "en";
 
@@ -12,6 +15,27 @@ type Trans = {
 
 export default function Navbar({ t, language, toggleLanguage }: Trans) {
   const [atTop, setAtTop] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    }
+
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +64,7 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
               -translate-x-1/2
 
               font-outfit
-              flex items-center
+              md:flex items-center hidden
               gap-2 sm:gap-6
               px-3 sm:px-6
               py-3
@@ -54,87 +78,24 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
               }
             `}
           >
-            <a
-              href="#hero"
-              onClick={(e) => {
-                e.preventDefault();
+            <NavOptions name="home" id="hero" t={t} />
 
-                document.getElementById("hero")?.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}
-              className="
-                text-sm lg:text-xl
-                transition duration-200
-                hover:scale-105
-                hover:-translate-y-1
-                hover:text-[#E8BD70]
-              "
-            >
-              {t.nav.home}
-            </a>
+            <NavOptions name="service" id="services" t={t} />
 
-            <a
-              href="#services"
-              onClick={(e) => {
-                e.preventDefault();
+            <NavOptions name="about" id="about" t={t} />
 
-                document.getElementById("services")?.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}
-              className="
-                text-sm sm:text-xl
-                transition duration-200
-                hover:scale-105
-                hover:-translate-y-1
-                hover:text-[#E8BD70]
-              "
-            >
-              {t.nav.service}
-            </a>
-
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-
-                document.getElementById("about")?.scrollIntoView({
-                  behavior: "smooth",
-                });
-              }}
-              className="
-                text-sm sm:text-xl
-                transition duration-200
-                hover:scale-105
-                hover:-translate-y-1
-                hover:text-[#E8BD70]
-              "
-            >
-              {t.nav.about}
-            </a>
-
-            <button
-              commandFor="contact-dialog"
-              command="show-modal"
-              className="
-                text-sm sm:text-xl
-                cursor-pointer
-                transition duration-200
-                hover:scale-105
-                hover:-translate-y-1
-                hover:text-[#E8BD70]
-              "
-            >
-              {t.nav.contact}
-            </button>
+            <NavOptions name="contact" id="contact" t={t} />
           </nav>
 
           <div
             className="
               fixed
               top-3 sm:top-4
-              left-5 sm:left-8 lg:left-12
+              right-5
+              left-auto
+
+              lg:right-auto
+              lg:left-12
               z-50
               flex items-center justify-center
             "
@@ -153,128 +114,27 @@ export default function Navbar({ t, language, toggleLanguage }: Trans) {
               </span>
             </button>
 
-            <div className="hidden sm:block">
+            <div ref={dropdownRef} className="relative">
+              <button
+                onClick={() => setDropdownOpen((current) => !current)}
+                className="
+                h-9.5 w-11 mr-2 mt-0.5 rounded-3xl
+                border border-white/10
+                flex justify-center items-center md:hidden
+              "
+              >
+                <Menu size={20} />
+              </button>
+
+              <MenuDropdown t={t} dropdownOpen={dropdownOpen} />
+            </div>
+
+            <div className="hidden md:block">
               <EmailButton />
             </div>
           </div>
         </div>
       </header>
     </>
-  );
-}
-
-function EmailButton() {
-  const email = "yucecontact@gmail.com";
-
-  const [mouse, setMouse] = useState({
-    x: 0,
-    y: 0,
-  });
-
-  const [hovering, setHovering] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  async function copyEmail() {
-    await navigator.clipboard.writeText(email);
-
-    setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 1500);
-  }
-
-  function handleMouseMove(e: React.MouseEvent<HTMLButtonElement>) {
-    const rect = e.currentTarget.getBoundingClientRect();
-
-    setMouse({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  }
-
-  // flex h-8 lg:h-11 lg:min-w-10 px-3 sm:px-4 py-2 group
-  //           items-center justify-center rounded-xl cursor-pointer text-sm lg:text-base font-semibold
-  //           border border-white/10 bg-[#151515]/80 hover:text-[#E8BD70] backdrop-blur-lg tracking-wide
-
-  return (
-    <div className="relative flex items-center justify-center">
-      <button
-        onClick={copyEmail}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={() => setHovering(true)}
-        onMouseLeave={() => setHovering(false)}
-        className="
-          group relative
-          h-11 w-13
-          cursor-pointer
-        "
-      >
-        <div
-          className="
-            absolute left-0 top-0
-            h-12 w-14
-            rounded-3xl
-            border border-white/10 bg-[#151515]/80 backdrop-blur-lg
-            shrink-0
-            whitespace-nowrap
-            transition-all
-            duration-300
-            ease-in-out
-            group-hover:w-[240px]
-          "
-        >
-          <span
-            className="
-              pointer-events-none
-              absolute left-12 top-1/2
-              -translate-y-1/2
-              whitespace-nowrap
-              opacity-0
-              transition-opacity
-              duration-200
-              group-hover:opacity-100
-              font-outfit
-            "
-          >
-            {email}
-          </span>
-
-          <MailPlusIcon
-            size={22}
-            className="
-              absolute left-4 top-1/2
-              -translate-y-1/2
-              group-hover:text-[#E8BD70]
-              transition duration-300
-            "
-          />
-
-          {hovering && (
-            <div
-              className="
-                pointer-events-none
-                absolute
-                shrink-0
-                whitespace-nowrap
-                rounded-lg
-                bg-[#2b2b2b]
-                px-3 py-2
-                text-sm
-                text-white
-                shadow-lg
-              "
-              style={{
-                left: mouse.x,
-                top: mouse.y,
-                transform: "translate(12px, 12px)",
-              }}
-            >
-              {copied ? "Copied!" : "Copy email"}
-            </div>
-          )}
-        </div>
-      </button>
-    </div>
   );
 }

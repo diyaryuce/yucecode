@@ -56,8 +56,14 @@ export default function ReactiveBackground() {
     }
 
     function resizeCanvas() {
-      canvas.width = document.documentElement.scrollWidth;
-      canvas.height = document.documentElement.scrollHeight;
+      canvas.width = 0;
+      canvas.height = 0;
+
+      const width = document.documentElement.clientWidth;
+      const height = document.documentElement.scrollHeight;
+
+      canvas.width = width;
+      canvas.height = height;
 
       createParticles();
     }
@@ -188,10 +194,9 @@ export default function ReactiveBackground() {
       className="
         pointer-events-none
         absolute
-        inset-0
+        left-0
+        top-0
         z-0
-        min-h-screen
-        min-w-screen
       "
     />
   );
